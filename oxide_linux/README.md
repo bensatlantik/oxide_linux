@@ -42,4 +42,4 @@ fn main() {
 This project is licensed under the MIT OR Apache-2.0 license
 
 ##Author
-Ben Santora<bensatlantik@gmail.com>
+Ben Santora <bensatlantik@gmail.com>
