@@ -1,6 +1,6 @@
 [package]
 name = "oxide_linux"
-version = "0.1.3"
+version = "0.1.4"  # Update the version as needed for new releases
 authors = ["Ben Santora <bensatlantik@gmail.com>"]
 edition = "2021"
 description = "A minimalist utility library for fetching common Linux system information."
@@ -8,3 +8,4 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/bensatlantik/oxide_linux"
 
 [dependencies]
+sysinfo = "0.32.0"  # External dependency for system information
