@@ -1,6 +1,6 @@
 [package]
 name = "oxide_linux"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["Ben Santora <bensatlantik@gmail.com>"]
 edition = "2021"
 description = "A minimalist utility library for fetching common Linux system information."

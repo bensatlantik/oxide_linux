@@ -8,15 +8,13 @@ pub fn get_kernel_version() -> Option<String> {
     Some(String::from_utf8_lossy(&output.stdout).trim().to_string())
 }
 
-/// Returns the system uptime in seconds as a f64.
-pub fn get_system_uptime() -> io::Result<f64> {
-    let mut file = File::open("/proc/uptime")?;
-    let mut content = String::new();
-    file.read_to_string(&mut content)?;
-    content.split_whitespace()
-        .next()
-        .ok_or_else(|| io::Error::new(io::ErrorKind::Other, "Failed to parse /proc/uptime"))
-        .and_then(|s| s.parse::<f64>().map_err(|_| io::Error::new(io::ErrorKind::Other, "Invalid uptime format")))
+/// Returns the system uptime as a tuple (hours, minutes, seconds).
+pub fn get_system_uptime_hms() -> io::Result<(u64, u64, u64)> {
+    let uptime_seconds = get_system_uptime()?;
+    let hours = (uptime_seconds / 3600.0) as u64;
+    let minutes = ((uptime_seconds % 3600.0) / 60.0) as u64;
+    let seconds = (uptime_seconds % 60.0) as u64;
+    Ok((hours, minutes, seconds))
 }
 
 /// Returns the available memory in kilobytes as a u64.
