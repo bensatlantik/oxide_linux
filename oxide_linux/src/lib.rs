@@ -8,8 +8,8 @@ pub fn get_kernel_version() -> Option<String> {
 
 /// Returns the system uptime in seconds, or an error if it fails.
 pub fn get_system_uptime() -> Result<f64, String> {
-    let sys = System::new();
-    Ok(sys.uptime() as f64)
+    let sys = System::new();  // Initialize System
+    Ok(sys.uptime() as f64)    // Use instance method correctly
 }
 
 /// Returns the available memory in kilobytes, or an error if it fails.
